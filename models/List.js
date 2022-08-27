@@ -7,9 +7,10 @@ const listSchema = new mongoose.Schema(
     },
     status: {
       type: String,
+      default: "todo",
     },
     dueDate: {
-      type: Number,
+      type: String,
     },
   },
   { timestamps: true }
