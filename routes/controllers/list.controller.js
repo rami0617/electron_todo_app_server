@@ -60,3 +60,17 @@ exports.searchItem = async (req, res, next) => {
     next(createError(500, "occured server error"));
   }
 };
+
+exports.updateItem = async (req, res, next) => {
+  try {
+    const { id, item, date } = req.body;
+
+    await List.findByIdAndUpdate(id, { name: item, dueDate: date });
+
+    const result = await List.find().lean();
+
+    res.status(201).json({ result: result });
+  } catch (error) {
+    next(createError(500, "occured server error"));
+  }
+};
