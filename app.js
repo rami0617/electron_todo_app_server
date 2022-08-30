@@ -7,7 +7,7 @@ const express = require("express");
 const cors = require("cors");
 
 const app = express();
-const indexRouter = require("./routes/list");
+const listRouter = require("./routes/list");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -18,7 +18,7 @@ app.use(
   })
 );
 
-app.use("/", indexRouter);
+app.use("/", listRouter);
 
 app.use(function (req, res, next) {
   next(createError(404));

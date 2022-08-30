@@ -4,7 +4,7 @@ const {
   HTTP_STATUS_CODE,
   ERROR_STATUS_CODE,
   ERROR_MESSAGE,
-} = require("../../constants");
+} = require("../../constants/httpManagement");
 
 exports.getList = async (req, res, next) => {
   try {
@@ -88,7 +88,7 @@ exports.deleteList = async (req, res, next) => {
   }
 };
 
-exports.searchItem = async (req, res, next) => {
+exports.searchTodoItem = async (req, res, next) => {
   const { keyword } = req.body;
 
   if (!keyword) {
@@ -109,7 +109,7 @@ exports.searchItem = async (req, res, next) => {
   }
 };
 
-exports.updateItem = async (req, res, next) => {
+exports.updateTodoItem = async (req, res, next) => {
   const { id, item, date } = req.body;
 
   if (!id || !item || !date) {

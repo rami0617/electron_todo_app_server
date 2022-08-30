@@ -1,19 +1,19 @@
 const express = require("express");
-const indexRouter = express.Router();
+const listRouter = express.Router();
 const {
   getList,
   addList,
   updateList,
   deleteList,
-  searchItem,
-  updateItem,
+  searchTodoItem,
+  updateTodoItem,
 } = require("./controllers/list.controller");
 
-indexRouter.get("/", getList);
-indexRouter.post("/", addList);
-indexRouter.patch("/", updateList);
-indexRouter.delete("/", deleteList);
-indexRouter.post("/search", searchItem);
-indexRouter.patch("/item", updateItem);
+listRouter.get("/list", getList);
+listRouter.post("/list", addList);
+listRouter.patch("/list", updateList);
+listRouter.delete("/list", deleteList);
+listRouter.post("/list/search", searchTodoItem);
+listRouter.patch("/list/item", updateTodoItem);
 
-module.exports = indexRouter;
+module.exports = listRouter;
