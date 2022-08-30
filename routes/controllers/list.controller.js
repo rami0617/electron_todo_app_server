@@ -75,7 +75,7 @@ exports.deleteList = async (req, res, next) => {
   try {
     await List.deleteOne({ _id: id });
 
-    const result = await List.find();
+    const result = await List.find().lean();
 
     res.status(HTTP_STATUS_CODE.REQUEST_SUCCESS).json({ result });
   } catch (error) {
@@ -96,7 +96,7 @@ exports.searchItem = async (req, res, next) => {
   }
 
   try {
-    const result = await List.find({ name: { $regex: keyword } });
+    const result = await List.find({ name: { $regex: keyword } }).lean();
 
     res.status(HTTP_STATUS_CODE.REQUEST_SUCCESS).json({ result });
   } catch (error) {
